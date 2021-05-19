@@ -3,20 +3,7 @@
     <h1>{{ nombre | titlecase }}</h1>
 </div>
 
-
-
-<button pButton 
-    (click)="mostrarNombre()"
-    label="Cambiar nombre"
-    icon="pi pi-android" iconPos="right"
-    class="p-button-danger p-button-rounded">    
-</button>
-
-<p-card [header]="nombre | titlecase"
-    subheader="Esto es una card">
-    <!-- <h3 class="p-card-title">Titulo</h3> -->
-    Lorem ipsum dete asjdneiaosn ashduas lorem ipsum
-</p-card>
-
-
 <app-menu></app-menu>
+
+<router-outlet></router-outlet>
+
