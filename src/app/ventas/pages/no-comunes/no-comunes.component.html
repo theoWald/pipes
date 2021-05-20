@@ -8,22 +8,90 @@
 </div>
 
 
-<div class="p-grid">
-    
+<div class="p-grid">    
     <div class="p-col p-md-6">
         <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
-            
-            Saludos {{ nombre }}, es un placer 
-            {{ genero | i18nSelect:invitacionMapa }} 
-            a nuestro evento
-
+            <p>
+                Saludos {{ nombre }}, es un placer 
+                {{ genero | i18nSelect:invitacionMapa }} 
+                a nuestro evento
+            </p>
+            <button 
+                pButton
+                class="p-button-outlined p-button-info"
+                label="Cambiar persona"
+                (click)="cambiarPersona()">
+            </button>
         </p-fieldset>
     </div>
 
     <div class="p-col p-md-6">
         <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
-            Content
+            <p>
+                Actualmente {{ clientes.length | i18nPlural: clientesMapa }}
+            </p>            
+            <button *ngIf="clientes.length > 0; else recarga"
+                pButton 
+                class="p-button-outlined p-button-warning"
+                label="Borrar cliente"
+                (click)="borrarCliente()">
+            </button>
+            <ng-template #recarga>
+                <button 
+                    pButton 
+                    class="p-button-rounded p-button-warning p-ml-5"
+                    icon="pi pi-refresh"
+                    (click)="recargar()">
+                </button>
+            </ng-template>            
         </p-fieldset>
     </div>
 
+    <div class="p-col p-md-6">
+        <p-fieldset legend="Slice Pipe" [toggleable]="true">
+            <b>Original</b>
+            <pre>{{ clientes }}</pre>
+            <b>slice:0:2</b>
+            <pre>{{ clientes | slice:0:2 }}</pre>
+            <b>slice:1:2</b>
+            <pre>{{ clientes | slice:1:2 }}</pre>
+            <b>slice:1:3</b>
+            <pre>{{ clientes | slice:1:3 }}</pre>
+            <b>slice:3:4</b>
+            <pre>{{ clientes | slice:3:4 }}</pre>
+            <b>juanlu slice:0:4</b>
+            <pre>{{ 'juanlu' | slice:0:4 }}</pre>
+            <b>nombre slice:0:3</b>
+            <pre>{{ nombre | slice:0:3 }}</pre>
+        </p-fieldset>
+    </div>
+
+    <div class="p-col p-md-6">
+        <p-fieldset legend="JSON Pipe" [toggleable]="true">
+            <pre>{{ persona | json }}</pre>
+            <pre>{{ heroes | json }}</pre>
+        </p-fieldset>
+    </div>
+
+    <div class="p-col p-md-6">
+        <p-fieldset legend="KeyValue Pipe" [toggleable]="true">
+            <ul>
+                <li *ngFor="let item of persona | keyvalue">
+                    <!-- {{ item | json }} -->
+                    <b>{{ item.key | titlecase }}:</b> {{ item.value }}
+                </li>
+            </ul>
+        </p-fieldset>
+    </div>
+
+    <div class="p-col p-md-6">
+        <p-fieldset legend="Async Pipe" [toggleable]="true">
+            <b>Observable</b>
+            <pre *ngIf="!(miObservable | async)">Resolviendo observable ...</pre>
+            <pre>{{ miObservable | async }}</pre>
+            <b>Promesa</b>
+            <pre *ngIf="!(valorPromesa | async)">Resolviendo promesa ...</pre>
+            <pre>{{ valorPromesa | async }}</pre>
+        </p-fieldset>
+    </div>
 </div>
