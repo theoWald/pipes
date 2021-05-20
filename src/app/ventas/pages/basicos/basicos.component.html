@@ -42,11 +42,20 @@
             <ul>
                 <li>fecha</li>
                 <li>fecha | date</li>
-                <li>fecha | date:'short' </li>
-                <li>fecha | date:'long' </li>
-                <li>fecha | date:'MMMM' </li>
-                <li>fecha | date:'MMMM dd, yyyy' </li>
-                <li>fecha | date:'ww/53 dd/MM/YYYY HH:MM' (custom Juan lu) </li>
+                <li>fecha | date:'short'</li>
+                <li>fecha | date:'long'</li>
+                <li>fecha | date:'MMMM'</li>
+                <li>fecha | date:'MMMM dd, yyyy'</li>
+                <li>fecha | date:'ww/53 dd/MM/YYYY HH:MM' (custom Juan lu)</li>
+            </ul>
+
+            <hr>
+            <ul>
+                <li>fecha | date:'long':'GMT+1'</li>
+                <li>fecha | date:'long':'GMT+3'</li>
+                <li>fecha | date:'long':'':'en'</li>
+                <li>fecha | date:'long':'':'de'</li>
+                <li>fecha | date:'long':'':'fr'</li>
             </ul>
         </p-card>
     </div>
@@ -60,6 +69,15 @@
                 <li>{{ fecha | date:'MMMM' }}</li>
                 <li>{{ fecha | date:'MMMM dd, yyyy' }}</li>
                 <li>{{ fecha | date:'ww/53 dd/MM/YYYY HH:MM' }}</li>
+            </ul>
+
+            <hr>
+            <ul>
+                <li>{{ fecha | date:'long':'GMT+1' }}</li>
+                <li>{{ fecha | date:'long':'GMT+3' }}</li>
+                <li>{{ fecha | date:'long':'':'en' }}</li>
+                <li>{{ fecha | date:'long':'':'de' }}</li>
+                <li>{{ fecha | date:'long':'':'fr' }}</li>
             </ul>
         </p-card>
     </div>
